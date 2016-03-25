@@ -1,0 +1,10 @@
+/*
+ * author: Michael Wang
+ * date created:March 24 2016
+ * classname: VotingSystem.java
+ * function: To create a voting system for choosing between 4 canidates. 
+ */
+
+public class VotingSystem {
+
+}

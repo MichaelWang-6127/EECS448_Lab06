@@ -1,0 +1,274 @@
+/*
+ * author: Michael Wang
+ * date created:March 24 2016
+ * classname: VotingSystem.java
+ * function: To create a voting system for choosing between 4 canidates. 
+ */
+
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.*;
+import java.io.File;
+import java.util.*;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class VotingSystem {
+	private JPanel panel;
+	private JButton button1;
+	private JButton button2;
+	private JButton button3;
+	private JButton button4;
+	private JTextField text;
+	private JTextField text2;
+	private JLabel label1;
+	private JLabel label2;
+	private JLabel label3;
+	
+	VotingSystem()
+	{
+		panel = new JPanel();
+		button1 = new JButton("Vote for Donald Trump!");
+		button2 = new JButton("Vote for Ted Cruz!");
+		button3 = new JButton("Vote for Hillary Clinton!");
+		button4 = new JButton("Vote for Bernie Sanders!");
+		text = new JTextField(6);//6 cols, not 20 chars
+		text2 = new JTextField(6);//6 cols, not 20 chars
+		label1 = new JLabel("Enter in your first name.");
+		label2 = new JLabel("Enter in your last name.");
+		label3 = new JLabel("Click the button for the canidate you want to vote for.");
+		
+		button1.addActionListener(button1Listener());
+		button2.addActionListener(button2Listener());
+		button3.addActionListener(button3Listener());
+		button4.addActionListener(button4Listener());
+		
+		panel.add(text);
+		panel.add(label1);
+		panel.add(text2);
+		panel.add(label2);
+		panel.add(button1);
+		panel.add(button2);
+		panel.add(button3);
+		panel.add(button4);
+		panel.add(label3);
+	}
+	
+	public Component getContent()
+	{
+		return (panel);
+	}
+	
+	private ActionListener button1Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String input2 = text2.getText();
+				String fileName = "";
+				String newText = "";
+				if(input.equals(""))
+				{
+					newText = "You cannot leave your first name blank!";
+				}
+				else if(input2.equals(""))
+				{
+					newText = "You cannot leave your last name blank!";
+				}
+				else
+				{
+					fileName = input2 + "_" + input + "_ballot.txt";
+					File f = new File(fileName);
+					if(f.isFile())
+					{
+						newText = "You already voted. You can only vote once.";
+					}
+					else
+					{
+						try
+						{
+							FileWriter fstream = new FileWriter(f.getAbsoluteFile());
+							BufferedWriter out = new BufferedWriter(fstream);
+							out.write("Voted for: Donald Trump.");
+							out.close();
+						}
+						catch(IOException t)
+						{
+							System.err.println("Error: " + t.getMessage());
+						}
+						newText = "Thanks for Voting. You voted for Donald Trump.";
+					}
+				}
+				
+				
+				label3.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}	
+
+	private ActionListener button2Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String input2 = text2.getText();
+				String fileName = "";
+				String newText = "";
+				if(input.equals(""))
+				{
+					newText = "You cannot leave your first name blank!";
+				}
+				else if(input2.equals(""))
+				{
+					newText = "You cannot leave your last name blank!";
+				}
+				else
+				{
+					fileName = input2 + "_" + input + "_ballot.txt";
+					File f = new File(fileName);
+					if(f.isFile())
+					{
+						newText = "You already voted. You can only vote once.";
+					}
+					else
+					{
+						try
+						{
+							FileWriter fstream = new FileWriter(fileName);
+							BufferedWriter out = new BufferedWriter(fstream);
+							out.write("Voted for: Donald Trump.");
+						}
+						catch(IOException t)
+						{
+							System.err.println("Error: " + t.getMessage());
+						}
+						newText = "Thanks for Voting. You voted for Ted Cruz.";
+					}
+				}
+				
+				
+				label3.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}	
+	
+	private ActionListener button3Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String input2 = text2.getText();
+				String fileName = "";
+				String newText = "";
+				if(input.equals(""))
+				{
+					newText = "You cannot leave your first name blank!";
+				}
+				else if(input2.equals(""))
+				{
+					newText = "You cannot leave your last name blank!";
+				}
+				else
+				{
+					fileName = input2 + "_" + input + "_ballot.txt";
+					File f = new File(fileName);
+					if(f.isFile())
+					{
+						newText = "You already voted. You can only vote once.";
+					}
+					else
+					{
+						try
+						{
+							FileWriter fstream = new FileWriter(fileName);
+							BufferedWriter out = new BufferedWriter(fstream);
+							out.write("Voted for: Donald Trump.");
+						}
+						catch(IOException t)
+						{
+							System.err.println("Error: " + t.getMessage());
+						}
+						newText = "Thanks for Voting. You voted for Hillary Clinton.";
+					}
+				}
+				
+				
+				label3.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}	
+	
+	private ActionListener button4Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String input2 = text2.getText();
+				String fileName = "";
+				String newText = "";
+				if(input.equals(""))
+				{
+					newText = "You cannot leave your first name blank!";
+				}
+				else if(input2.equals(""))
+				{
+					newText = "You cannot leave your last name blank!";
+				}
+				else
+				{
+					fileName = input2 + "_" + input + "_ballot.txt";
+					File f = new File(fileName);
+					if(f.isFile())
+					{
+						newText = "You already voted. You can only vote once.";
+					}
+					else
+					{
+						try
+						{
+							FileWriter fstream = new FileWriter(fileName);
+							BufferedWriter out = new BufferedWriter(fstream);
+							out.write("Voted for: Donald Trump.");
+						}
+						catch(IOException t)
+						{
+							System.err.println("Error: " + t.getMessage());
+						}
+						newText = "Thanks for Voting. You voted for Bernie Sanders.";
+					}
+				}
+				
+				
+				label3.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}	
+	
+}

@@ -1,0 +1,21 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+
+public class DiceDriver {
+	private static void createAndShowGUI() {
+		JFrame frame = new JFrame("DiceDriver"); //Window title
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Exit when closed
+        
+        JLabel label = new JLabel("Input a number for the number of sides for a dice.");
+        frame.getContentPane().add(label); //Note that is Pane not Panel
+        
+        frame.pack();    //Put everything together
+        frame.setVisible(true); //Make it visible
+	}
+	
+	public static void main(String[] args) {
+        createAndShowGUI();
+	}
+	
+}

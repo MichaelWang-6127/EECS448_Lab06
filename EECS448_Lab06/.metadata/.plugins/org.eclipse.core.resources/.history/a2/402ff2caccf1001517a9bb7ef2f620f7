@@ -1,0 +1,25 @@
+/*
+ * author: Michael Wang
+ * date created:March 24 2016
+ * classname: VotingSystem.java
+ * function: To create a voting system for choosing between 4 canidates. 
+ */
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class VotingSystem {
+	private JPanel panel;
+	private JButton button;
+	private JTextField text;
+	private JLabel label;
+	
+	VotingSystem()
+	{
+		
+	}
+	
+
+}

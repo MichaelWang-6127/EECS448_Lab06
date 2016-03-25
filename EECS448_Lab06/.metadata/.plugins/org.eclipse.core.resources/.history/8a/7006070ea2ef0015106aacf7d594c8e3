@@ -1,0 +1,34 @@
+import java.awt.Component;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Dice {
+	private JPanel panel;
+	private JButton button;
+	private JTextField text;
+	private JLabel label;
+	
+	public Dice()
+	{
+		panel = new JPanel();
+		button = new JButton("Roll");
+		text = new JTextField(3);//3 cols, not 20 chars
+		label = new JLabel("Input a number for the number of sides for a dice.");
+		
+		button.addActionListener(buttonListener());	
+		
+		panel.add(text);
+		panel.add(button);
+		panel.add(label);
+	}
+	
+	public Component getContent()
+	{
+		return (panel);
+	}
+
+}

@@ -1,0 +1,13 @@
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Dice {
+	private JPanel panel;
+	private JButton button;
+	private JTextField text;
+	private JLabel label;
+
+}

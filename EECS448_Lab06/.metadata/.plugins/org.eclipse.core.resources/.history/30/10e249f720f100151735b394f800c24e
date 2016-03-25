@@ -1,0 +1,245 @@
+/*
+ * author: Michael Wang
+ * date created:March 22 2016
+ * classname: SafeConverter.java
+ * function: To create a Converter for temperature. 
+ */
+
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+public class SafeConverter {
+	private JPanel panel;
+	private JButton button1;
+	private JButton button2;
+	private JButton button3;
+	private JButton button4;
+	private JButton button5;
+	private JButton button6;
+	private JTextField text;
+	private JLabel label;
+	
+	//double tempF = 0.0;
+	//double tempC = 0.0;
+	//double tempK = 0.0;
+	
+	//String input = "";
+	//String newText = "";
+	
+	public SafeConverter()
+	{	
+		panel = new JPanel();
+		button1 = new JButton("Convert F to C");
+		button2 = new JButton("Convert F to K");
+		button3 = new JButton("Convert C to K");
+		button4 = new JButton("Convert C to F");
+		button5 = new JButton("Convert K to F");
+		button6 = new JButton("Convert K to C");
+		text = new JTextField(8);//8 cols, not 20 chars
+		label = new JLabel("Input a number for the temperature conversion.");
+		
+		button1.addActionListener(button1Listener());
+		button2.addActionListener(button2Listener());
+		button3.addActionListener(button3Listener());
+		button4.addActionListener(button4Listener());
+		button5.addActionListener(button5Listener());
+		button6.addActionListener(button6Listener());
+		
+		panel.add(text);
+		panel.add(button1);
+		panel.add(button2);
+		panel.add(button3);
+		panel.add(button4);
+		panel.add(button5);
+		panel.add(button6);
+		panel.add(label);
+	}
+	
+	public Component getContent()
+	{
+		return (panel);
+	}
+	
+	private ActionListener button1Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String newText = "";
+				double tempF = 0.0;
+				double tempC = 0.0;
+				double tempK = 0.0;
+				try
+				{
+					tempF = Double.parseDouble(input);//convert String to double
+					tempC = ((tempF-32)*(5.0/9.0));
+					newText = "Temp in C: " + String.format("%.2f",tempC);
+				}
+				catch(Exception a)
+				{
+					newText = "The input was not a number!";
+				}
+				
+				label.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}
+	private ActionListener button2Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String newText = "";
+				double tempF = 0.0;
+				double tempC = 0.0;
+				double tempK = 0.0;
+				try
+				{
+					tempF = Double.parseDouble(input);//convert String to double
+					tempK = ((tempF-32)*(5.0/9.0)+273.15);
+					newText = "Temp in K: " + String.format("%.2f",tempK);
+				}
+				catch(Exception a)
+				{
+					newText = "The input was not a number!";
+				}
+				
+				label.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}
+	private ActionListener button3Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String newText = "";
+				double tempF = 0.0;
+				double tempC = 0.0;
+				double tempK = 0.0;
+				try
+				{
+					tempC = Double.parseDouble(input);//convert String to double
+					tempK = (tempC+273.15);
+					newText = "Temp in K: " + String.format("%.2f",tempK);
+				}
+				catch(Exception a)
+				{
+					newText = "The input was not a number!";
+				}
+				
+				label.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}
+	private ActionListener button4Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String newText = "";
+				double tempF = 0.0;
+				double tempC = 0.0;
+				double tempK = 0.0;
+				try
+				{
+					tempC = Double.parseDouble(input);//convert String to double
+					tempF = (tempC*(9.0/5.0)+32.0);
+					newText = "Temp in F: " + String.format("%.2f",tempF);					
+				}
+				catch(Exception a)
+				{
+					newText = "The input was not a number!";
+				}
+				
+				label.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}
+	private ActionListener button5Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String newText = "";
+				double tempF = 0.0;
+				double tempC = 0.0;
+				double tempK = 0.0;
+				try
+				{
+					tempK = Double.parseDouble(input);//convert String to double
+					tempF = ((tempK-273.15)*(9.0/5.0)-32.0);
+					newText = "Temp in F: " + String.format("%.2f",tempF);
+				}
+				catch(Exception a)
+				{
+					newText = "The input was not a number!";
+				}
+				
+				label.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}
+	private ActionListener button6Listener()
+	{
+		ActionListener listener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String input = text.getText();
+				String newText = "";
+				double tempF = 0.0;
+				double tempC = 0.0;
+				double tempK = 0.0;
+				try
+				{
+					tempK = Double.parseDouble(input);//convert String to double
+					tempC = (tempK-273.15);
+					newText = "Temp in C: " + String.format("%.2f",tempC);
+				}
+				catch(Exception a)
+				{
+					newText = "The input was not a number!";
+				}
+				
+				label.setText(newText);
+				System.out.println(newText);
+			}
+		};
+		
+		return listener;
+	}
+}

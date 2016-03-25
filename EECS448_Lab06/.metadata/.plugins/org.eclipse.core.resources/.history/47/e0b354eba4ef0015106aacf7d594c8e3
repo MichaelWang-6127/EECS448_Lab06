@@ -1,0 +1,25 @@
+/*
+ * author: Michael Wang
+ * date created:March 21 2016
+ * classname: Dice.java
+ * function: To create a Dice with a given input size and roll it. 
+ */
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+
+public class DiceDriver {
+	private static void createAndShowGUI() {
+		JFrame frame = new JFrame("Dice Roller");
+		Dice theDice = new Dice();
+		
+		frame.getContentPane().add(theDice.getContent());
+		frame.pack();
+		frame.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+        createAndShowGUI();
+	}
+	
+}

@@ -1,0 +1,52 @@
+/*
+ * author: Michael Wang
+ * date created:March 24 2016
+ * classname: VotingSystem.java
+ * function: To create a voting system for choosing between 4 canidates. 
+ */
+
+import java.awt.Component;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class VotingSystem {
+	private JPanel panel;
+	private JButton button1;
+	private JButton button2;
+	private JButton button3;
+	private JButton button4;
+	private JTextField text;
+	private JLabel label;
+	
+	VotingSystem()
+	{
+		panel = new JPanel();
+		button1 = new JButton("Vote for Donald Trump!");
+		button2 = new JButton("Vote for Ted Cruz!");
+		button3 = new JButton("Vote for Hillary Clinton!");
+		button4 = new JButton("Vote for Bernie Sanders!");
+		text = new JTextField(6);//3 cols, not 20 chars
+		label = new JLabel("Click the button for the canidate you want to vote for.");
+		
+		button1.addActionListener(button1Listener());
+		button2.addActionListener(button2Listener());
+		button3.addActionListener(button3Listener());
+		button4.addActionListener(button4Listener());
+		
+		panel.add(text);
+		panel.add(button1);
+		panel.add(button2);
+		panel.add(button3);
+		panel.add(button4);
+		panel.add(label);
+	}
+	
+	public Component getContent()
+	{
+		return (panel);
+	}
+
+}

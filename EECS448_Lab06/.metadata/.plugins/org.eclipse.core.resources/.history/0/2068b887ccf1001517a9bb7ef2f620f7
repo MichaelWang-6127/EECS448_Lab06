@@ -1,0 +1,9 @@
+/*
+ * author: Michael Wang
+ * date created:March 24 2016
+ * classname: VotingSystemDriver.java
+ * function: To create a GUI gor voting system for choosing between 4 canidates. 
+ */
+public class VotingSystemDriver {
+
+}
